@@ -8,9 +8,9 @@
 
 <template>
   <div id="center">
-    <TitleBar :handOpenClass="handOpenClass"/>
-    <ListItem :isOpen ="isOpen"  />
-    <EmitTest/>
+      <TitleBar :handOpenClass="handOpenClass"/>
+      <ListItem :isOpen ="isOpen"  />
+    <!-- <EmitTest/> -->
   </div>
 
 </template>
@@ -38,4 +38,5 @@
       border: 1px solid #42b983;
       border-radius: 10px;
     }
+
 </style>

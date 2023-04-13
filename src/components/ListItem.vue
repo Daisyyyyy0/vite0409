@@ -16,11 +16,14 @@
 </script>
 
 <template >
-        <ul :class="['box', { open: props.isOpen }]">
+      <Transition name="open">
+        <ul class="box" v-show="props.isOpen">
           <li v-for="(list, idx) in listArr" :key="list.name">
             {{ idx + 1 }}. {{ list.name }}
           </li>
         </ul>
+      </Transition>
+
 
 
 </template>
@@ -29,14 +32,14 @@
     .box {
       display: block;
       width: 100%;
-      height: 0;
+      /* height: 0; */
       background-color: snow;
       transition: height 0.4s;
     }
 
-    .box.open {
+    /* .box.open {
       height: 200px;
-    }
+    } */
 
     .box>li {
       display: flex;
@@ -48,4 +51,30 @@
       font-size: 12px;
       color: darkslategray;
     }
+
+    
+  .open-enter-from{
+    height: 0;
+  }
+  .open-enter-to{
+    height: 200px;;
+  }
+  .open-leave-from{
+    height: 200px;;
+  }
+  .open-leave-to{
+    height: 0;
+  } 
+
+  .open-enter-active,
+  .open-leave-active {
+    transition: height 1s ease;
+  }
+  
+  .open-enter-from,
+  .open-leave-to {
+    opacity: 0;
+    transform: translateX(30px);
+  } 
+
 </style>
